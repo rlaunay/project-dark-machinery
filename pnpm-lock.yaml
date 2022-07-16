@@ -66,7 +66,6 @@ importers:
 
   apps/front:
     specifiers:
-      '@dark-machinery/types': workspace:^1.0.1
       '@types/node': 18.0.5
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
@@ -81,18 +80,11 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
-      '@dark-machinery/types': link:../../libs/types
       '@types/node': 18.0.5
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
       eslint: 8.19.0
       eslint-config-next: 12.2.2_4x5o4skxv6sl53vpwefgt23khm
-      typescript: 4.7.4
-
-  libs/types:
-    specifiers:
-      typescript: ^4.7.4
-    devDependencies:
       typescript: 4.7.4
 
 packages:
