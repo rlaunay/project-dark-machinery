@@ -19,7 +19,6 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2",
-    "typescript": "^4.7.4",
-    "@dark-machinery/types": "workspace:^1.0.1"
+    "typescript": "^4.7.4"
   }
 }

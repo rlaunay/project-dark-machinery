@@ -2,18 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import type { Fiche } from '@dark-machinery/types'
 
 const Home: NextPage = () => {
-  const salut: Fiche = {
-    id: 'salut',
-    name: 'moi',
-    age: 12,
-    isAlive: true
-  };
-
-  console.log(salut)
-
   return (
     <div className={styles.container}>
       <Head>
