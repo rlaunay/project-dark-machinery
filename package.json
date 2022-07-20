@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm run -r --parallel dev"
+    "dev": "pnpm run -r --parallel dev",
+    "front": "pnpm run -r --filter ./apps/front dev"
   },
   "keywords": [],
   "author": "",
