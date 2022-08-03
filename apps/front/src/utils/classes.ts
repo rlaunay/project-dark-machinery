@@ -13,7 +13,7 @@ export function cn(...classNames: ClassName[]) {
     };
 
     Object.keys(className).forEach((key) => {
-      if (className[key]) {
+      if (key !== '' && className[key]) {
         classes.push(key)
       }
     })
