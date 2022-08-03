@@ -1,12 +1,33 @@
+.layout {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #404040;
+  overflow: hidden;
+}
+
 .body {
   display: flex;
   flex-grow: 1;
   position: relative;
 
-  & .main {
-    background-color: #404040;
+  & .container {
+    background-color: var(--bg-secondary);
+    height: 100%;
     width: 100%;
-    padding: 20px 50px;
+    position: relative;
+
+    & .main {
+      padding: 20px 50px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+      overflow-y: auto;
+    }
   }
 
   & .backdrop {

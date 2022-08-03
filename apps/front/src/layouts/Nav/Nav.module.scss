@@ -1,19 +1,28 @@
 .nav {
-  background-color: var(--primary);
+  background-color: var(--bg-primary);
   width: 0px;
   transform: translateX(-250px);
   transition: all 250ms;
-  border-right: 2px solid #fbbf24;
+  border-right: 2px solid var(--primary);
+  position: relative;
 
   flex-shrink: 0;
 
   & .list {
-    margin-top: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding-top: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 
     & .item {
+      flex-shrink: 0;
       height: 52px;
       display: grid;
       place-items: center;
@@ -28,12 +37,12 @@
         transition: background 200ms;
 
         &.active {
-          background-color: #fbbf24;
-          color: #262626;
+          background-color: var(--primary);
+          color: var(--bg-primary);
         }
 
         &:hover {
-          border: 2px solid #fbbf24;
+          border: 2px solid var(--primary);
           border-radius: 5px;
         }
       }

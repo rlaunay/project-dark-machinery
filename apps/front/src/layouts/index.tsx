@@ -23,15 +23,17 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, [isMatch])
 
   return (
-    <>
+    <div className={classes.layout}>
       <Header onToggleNav={toggleNavHandler} />
       <div className={classes.body} >
         <Nav isOpen={isNavOpen} />
         {!isMatch && <div className={cn(classes.backdrop, { [classes.open]: isNavOpen })} onClick={toggleNavHandler} />}
-        <main className={classes.main} >
-          {children}
-        </main>
+        <div className={classes.container}>
+          <main className={classes.main} >
+            {children}
+          </main>
+        </div>
       </div>
-    </>
+    </div>
   )
 }

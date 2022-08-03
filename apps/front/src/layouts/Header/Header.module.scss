@@ -5,7 +5,9 @@
 
   height: 64px;
 
-  background: var(--primary);
+  flex-shrink: 0;
+
+  background: var(--bg-primary);
   border-bottom: 2px solid #fbbf24;
   // box-shadow: 0px 0px 3px 4px rgba(0,22,130,0.9);
   // box-shadow: 0px 0px 3px 4px rgba(45,255,196,0.9);
