@@ -1,4 +1,7 @@
 {
+  "dependencies": {
+    "@nestjs/mapped-types": "*"
+  },
   "name": "project-dark-machinery",
   "version": "1.0.0",
   "description": "",

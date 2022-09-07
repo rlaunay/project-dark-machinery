@@ -1,0 +1,13 @@
+.btnLink {
+  text-decoration: none;
+  color: white;
+  border: 1px solid var(--primary);
+  padding: 10px 15px;
+  border-radius: 7px;
+  transition: color 200ms;
+
+  &:hover {
+    background-color: var(--primary);
+    color: var(--bg-primary);
+  }
+}

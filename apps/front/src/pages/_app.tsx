@@ -5,9 +5,11 @@ import { Layout } from '../layouts'
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useRef } from 'react'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { usePageProgressBar } from 'hooks/usePageProgressBar'
 
 function MyApp({ Component, pageProps: { dehydratedState, ...pageProps } }: AppProps) {
-  const queryClientRef = useRef(new QueryClient())
+  const queryClientRef = useRef(new QueryClient());
+  usePageProgressBar();
 
   return <>
     <Head>

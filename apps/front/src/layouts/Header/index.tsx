@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { IconButton } from 'components/IconButton';
 import classes from './Header.module.scss';
+import { ButtonLink } from 'components/ButtonLink';
 
 type HeaderProps = {
   onToggleNav: () => void; 
@@ -16,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleNav }) => {
       </IconButton>
       <Image src="/logo.png" alt="Logo Project Dark Machinery" height="42" width="42" />
       <h2>Project Dark Machinery</h2>
-      <button className={classes.last} >Se connecter</button>
+      <ButtonLink href={process.env.NEXT_PUBLIC_LOGIN_URL || ''} className={classes.last} >Se connecter</ButtonLink>
     </header>
   )
 }
