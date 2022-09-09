@@ -1,16 +1,19 @@
-import { Client, ClientEvents, Collection, GatewayIntentBits } from 'discord.js';
-import { Command, CommandsJSON, CommandType, deploy } from 'client/commad';
+import { ActivityType, Client, ClientEvents, Collection, GatewayIntentBits } from 'discord.js';
+import { Command, CommandsJSON, CmdType, deploy } from 'client/commad';
 import { getFoldersPath, getScriptFilesPath, importFiles, ROOT } from 'utils/file';
 import { resolve } from 'path';
 import { DiscordEvent } from './event';
 
 export class MiraClient extends Client {
-  slashCommands: Collection<string, Command<CommandType.slash>> = new Collection();
-  userCommands: Collection<string, Command<CommandType.user>> = new Collection();
-  messageCommands: Collection<string, Command<CommandType.message>> = new Collection();
+  slashCommands: Collection<string, Command<CmdType.slash>> = new Collection();
+  userCommands: Collection<string, Command<CmdType.user>> = new Collection();
+  messageCommands: Collection<string, Command<CmdType.message>> = new Collection();
 
   constructor() {
-    super({ intents: [GatewayIntentBits.Guilds] });
+    super({
+      intents: [GatewayIntentBits.Guilds],
+      presence: { activities: [{ name: 'salut!', type: ActivityType.Watching }] },
+    });
   }
 
   private async commandHandler() {
@@ -24,14 +27,14 @@ export class MiraClient extends Client {
     const userCommandsFilesPath = getScriptFilesPath(userCommandsPath);
     const messageCommandsFilesPath = getScriptFilesPath(messageCommandsPath);
 
-    const commandsList: [string[], Collection<string, Command<CommandType>>][] = [
+    const commandsList: [string[], Collection<string, Command<CmdType>>][] = [
       [slashCommandsFilesPath, this.slashCommands],
       [userCommandsFilesPath, this.userCommands],
       [messageCommandsFilesPath, this.messageCommands],
     ];
 
     await Promise.all(commandsList.map(([paths, cmdsMap]) => {
-      return importFiles<Command<CommandType>>(paths, (cmd) => {
+      return importFiles<Command<CmdType>>(paths, (cmd) => {
         cmdsMap.set(cmd.data.name, cmd);
         commands.push(cmd.data.toJSON());
       });

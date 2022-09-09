@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "pnpm run -r --parallel dev",
     "front": "pnpm run -r --filter ./apps/front dev",
-    "api": "pnpm run -r --filter ./apps/api dev"
+    "api": "pnpm run -r --filter ./apps/api dev",
+    "bot": "pnpm run -r --filter ./apps/bot dev"
   },
   "keywords": [],
   "author": "",

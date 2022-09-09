@@ -1,59 +1,39 @@
-import { BaseInteraction, ChatInputCommandInteraction, CommandInteraction, ContextMenuCommandBuilder, MessageContextMenuCommandInteraction, RESTPostAPIApplicationCommandsJSONBody, SlashCommandBuilder, UserContextMenuCommandInteraction } from 'discord.js';
+import { ChatInputCommandInteraction, ContextMenuCommandBuilder, MessageContextMenuCommandInteraction, RESTPostAPIApplicationCommandsJSONBody, SlashCommandBuilder, UserContextMenuCommandInteraction } from 'discord.js';
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord.js';
 import { clientId, guildId, token } from 'config/env';
 import { MiraClient } from 'client';
 
 
-type Executor<T> = (client: MiraClient, interaction: T) => void;
+type Executor<T> = (interaction: T, client: MiraClient) => void;
 
 export type CommandsJSON = RESTPostAPIApplicationCommandsJSONBody[]
 
-export enum CommandType {
+export enum CmdType {
   slash = 'slash',
   user = 'user',
   message = 'message'
 }
 
 export type CommandData = {
-  [CommandType.slash]: {
+  [CmdType.slash]: {
     data: SlashCommandBuilder;
     exec: Executor<ChatInputCommandInteraction>;
   };
-  [CommandType.user]: {
+  [CmdType.user]: {
     data: ContextMenuCommandBuilder;
     exec: Executor<UserContextMenuCommandInteraction>;
   };
-  [CommandType.message]: {
+  [CmdType.message]: {
     data: ContextMenuCommandBuilder;
     exec: Executor<MessageContextMenuCommandInteraction>;
   }
 }
 
-export type Command<K extends CommandType> = {
+export type Command<K extends CmdType> = {
   data: CommandData[K]['data'];
   execute: CommandData[K]['exec'];
 }
-
-// export type Command = {
-//   data: SlashCommandBuilder | ContextMenuCommandBuilder;
-//   execute: Executor<ChatInputCommandInteraction | UserContextMenuCommandInteraction | MessageContextMenuCommandInteraction>;
-// }
-
-// export type SlashCommand = {
-//   data: SlashCommandBuilder;
-//   execute: Executor<ChatInputCommandInteraction>;
-// }
-
-// export type UserCommand = {
-//   data: ContextMenuCommandBuilder;
-//   execute: Executor<UserContextMenuCommandInteraction>;
-// }
-
-// export type MessageCommand = {
-//   data: ContextMenuCommandBuilder;
-//   execute: Executor<MessageContextMenuCommandInteraction>;
-// }
 
 const rest = new REST({ version: '10' }).setToken(token);
 
