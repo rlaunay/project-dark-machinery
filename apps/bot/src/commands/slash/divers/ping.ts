@@ -2,7 +2,7 @@ import { CmdType, Command } from 'client/commad';
 import { SlashCommandBuilder } from 'discord.js';
 
 const ping: Command<CmdType.slash> = {
-  data: new SlashCommandBuilder().setName('ping').setDescription('Ping'),
+  data: new SlashCommandBuilder().setName('ping').setDescription('Check latency with the bot'),
   async execute(interaction, client) {
     try {
       const mesg = await interaction.reply({ content: 'Pong!', fetchReply: true });

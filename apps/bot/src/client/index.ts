@@ -11,7 +11,7 @@ export class MiraClient extends Client {
 
   constructor() {
     super({
-      intents: [GatewayIntentBits.Guilds],
+      intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates],
       presence: { activities: [{ name: 'salut!', type: ActivityType.Watching }] },
     });
   }
