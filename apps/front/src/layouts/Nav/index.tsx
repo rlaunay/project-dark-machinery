@@ -1,5 +1,4 @@
 import { NavLink } from 'components/NavLink';
-import Link from 'next/link';
 import { cn } from 'utils/classes';
 import classes from './Nav.module.scss';
 
