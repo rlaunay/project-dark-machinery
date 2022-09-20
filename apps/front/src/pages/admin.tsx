@@ -1,4 +1,10 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  return {
+    props: {  }
+  }
+}
 
 const Admin: NextPage = () => {
   return (

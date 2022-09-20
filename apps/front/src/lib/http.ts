@@ -1,4 +1,6 @@
-async function http<T>(path: string, config: RequestInit): Promise<T> {
+import type { GetServerSidePropsContext } from "next";
+
+async function http<T>(req: GetServerSidePropsContext['req'], path: string, config: RequestInit): Promise<T> {
   let finalPath = path;
   if (path.startsWith('/') && !!process.env.NEXT_PUBLIC_API_URL) {
     finalPath = `${process.env.NEXT_PUBLIC_API_URL}${path}`
@@ -8,6 +10,7 @@ async function http<T>(path: string, config: RequestInit): Promise<T> {
     ...config,
     credentials: "include",
     headers: {
+      Cookie: req.headers.cookie ? req.headers.cookie : '',
       ...config.headers,
     }
   })
@@ -22,22 +25,22 @@ async function http<T>(path: string, config: RequestInit): Promise<T> {
   return data;
 }
 
-export async function get<T>(path: string, config?: RequestInit): Promise<T> {
+export async function get<T>(req: GetServerSidePropsContext['req'], path: string, config?: RequestInit): Promise<T> {
   const init = {method: 'GET', ...config}
-  return await http<T>(path, init)
+  return await http<T>(req, path, init)
 }
 
-export async function post<T, U>(path: string, body: T, config?: RequestInit): Promise<U> {
+export async function post<T, U>(req: GetServerSidePropsContext['req'], path: string, body: T, config?: RequestInit): Promise<U> {
   const init = {method: 'POST', body: JSON.stringify(body), ...config}
-  return await http<U>(path, init)
+  return await http<U>(req, path, init)
 }
 
-export async function put<T, U>(path: string, body: T, config?: RequestInit): Promise<U> {
+export async function put<T, U>(req: GetServerSidePropsContext['req'], path: string, body: T, config?: RequestInit): Promise<U> {
   const init = {method: 'PUT', body: JSON.stringify(body), ...config}
-  return await http<U>(path, init)
+  return await http<U>(req, path, init)
 }
 
-export async function remove<T>(path: string, config?: RequestInit): Promise<T> {
+export async function remove<T>(req: GetServerSidePropsContext['req'], path: string, config?: RequestInit): Promise<T> {
   const init = {method: 'DELETE', ...config}
-  return await http<T>(path, init)
+  return await http<T>(req, path, init)
 }
