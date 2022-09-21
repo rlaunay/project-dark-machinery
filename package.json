@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm run -r --parallel dev",
-    "front": "pnpm run -r --filter ./apps/front dev",
+    "front": "pnpm run -r --filter ./apps/client dev",
     "api": "pnpm run -r --filter ./apps/api dev",
     "bot": "pnpm run -r --filter ./apps/bot dev"
   },
