@@ -10,6 +10,7 @@
     "dev": "pnpm run -r --parallel dev",
     "front": "pnpm run -r --filter ./apps/client dev",
     "api": "pnpm run -r --filter ./apps/api dev",
+    "back": "pnpm run -r --filter ./apps/backend dev",
     "bot": "pnpm run -r --filter ./apps/bot dev"
   },
   "keywords": [],

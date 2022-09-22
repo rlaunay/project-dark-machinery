@@ -3,5 +3,6 @@
     "./apps/api",
     "./apps/bot",
     "./apps/front",
+    "./apps/backend",
   ]
 }
