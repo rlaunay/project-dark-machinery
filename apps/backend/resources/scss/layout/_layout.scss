@@ -1,0 +1,32 @@
+.layout {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+  // background-color: red;
+
+  & .nav-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 200ms;
+
+    &.open {
+      background-color: rgba(0, 0, 0);
+      opacity: 0.8;
+      pointer-events: all;
+    }
+  }
+
+  & main {
+    height: calc(100vh - 6.4rem);
+    overflow-y: auto;
+  }
+
+  @include breakpoints(md) {
+    & .nav-backdrop {
+      display: none;
+    }
+  }
+}

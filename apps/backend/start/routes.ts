@@ -21,4 +21,15 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'HomeController.index').as('home')
+
+Route.get('/profile', 'ProfileController.index').as('profile').middleware('auth')
+
 Route.get('/wiki', 'WikiController.index').as('wiki')
+
+Route.group(() => {
+  Route.get('/admin', 'AdminController.index').as('admin')
+}).middleware(['auth', 'admin'])
+
+Route.get('/discord/redirect', 'DiscordController.redirect').as('discord.redirect')
+Route.get('/discord/callback', 'DiscordController.callback')
+Route.post('/discord/logout', 'DiscordController.logout').as('discord.logout')

@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "pnpm run -r --parallel dev",
     "back": "pnpm run -r --filter ./apps/backend dev",
-    "bot": "pnpm run -r --filter ./apps/bot dev"
+    "bot": "pnpm run -r --filter ./apps/bot dev",
+    "bdd": "docker-compose up -d"
   },
   "keywords": [],
   "author": "",

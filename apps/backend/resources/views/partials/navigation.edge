@@ -1,14 +1,31 @@
-<nav>
-  <ul>
-    <li>
-      <a href="{{ route('home') }}" >
+<nav class="sidebar">
+  <ul class="list" layout-nav>
+    <li class="list-item">
+      <a href="{{ route('home') }}" class="link {{ (request.matchesRoute('home')) ? 'active' : '' }}" up-target="[layout-main], [layout-nav]">
         Accueil
       </a>
     </li>
-    <li>
-      <a href="{{ route('wiki') }}" >
+    
+    @if(auth.isLoggedIn)
+      <li class="list-item">
+        <a href="{{ route('profile') }}" class="link {{ (request.matchesRoute('profile')) ? 'active' : '' }}" up-target="[layout-main], [layout-nav]">
+          Profile
+        </a>
+      </li>
+    @end
+
+    <li class="list-item">
+      <a href="{{ route('wiki') }}" class="link {{ (request.matchesRoute('wiki')) ? 'active' : '' }}" up-target="[layout-main], [layout-nav]">
         Wiki
       </a>
     </li>
+
+    @can('adminOnly')
+      <li class="list-item">
+        <a href="{{ route('admin') }}" class="link {{ (request.matchesRoute('admin')) ? 'active' : '' }}" up-target="[layout-main], [layout-nav]">
+          Admin
+        </a>
+      </li>
+    @end
   </ul>
 </nav>
