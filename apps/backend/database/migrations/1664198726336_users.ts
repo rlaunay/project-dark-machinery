@@ -10,6 +10,7 @@ export default class UsersSchema extends BaseSchema {
       table.string('email', 255).notNullable().unique().index()
       table.string('username')
       table.string('avatar_url')
+      table.enu('role', ['USER', 'GAME_MASTER', 'ADMIN']).defaultTo('USER')
 
       /**
        * Uses timestampz for PostgreSQL and DATETIME2 for MSSQL
