@@ -24,12 +24,32 @@ Route.get('/', 'HomeController.index').as('home')
 
 Route.get('/profile', 'ProfileController.index').as('profile').middleware('auth')
 
-Route.get('/wiki', 'WikiController.index').as('wiki')
+Route.group(() => {
+  Route.get('/', 'FichesController.index').as('home')
+})
+  .prefix('/fiches')
+  .as('fiche')
+  .middleware('auth')
 
 Route.group(() => {
-  Route.get('/admin', 'AdminController.index').as('admin')
-}).middleware(['auth', 'admin'])
+  Route.get('/', 'WikiController.index').as('home')
+  Route.get('/:categorySlug', 'WikiController.category').as('category')
+  Route.get('/:categorySlug/pageSlug', 'WikiController.page').as('page')
+})
+  .prefix('/wiki')
+  .as('wiki')
 
-Route.get('/discord/redirect', 'DiscordController.redirect').as('discord.redirect')
-Route.get('/discord/callback', 'DiscordController.callback')
-Route.post('/discord/logout', 'DiscordController.logout').as('discord.logout')
+Route.group(() => {
+  Route.get('/', 'AdminController.index').as('home')
+})
+  .prefix('/admin')
+  .as('admin')
+  .middleware(['auth', 'admin'])
+
+Route.group(() => {
+  Route.get('/redirect', 'DiscordController.redirect').as('redirect')
+  Route.get('/callback', 'DiscordController.callback')
+  Route.post('/logout', 'DiscordController.logout').as('logout')
+})
+  .prefix('/discord')
+  .as('discord')

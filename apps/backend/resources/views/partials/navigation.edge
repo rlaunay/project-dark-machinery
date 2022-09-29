@@ -15,14 +15,14 @@
     @end
 
     <li class="list-item">
-      <a href="{{ route('wiki') }}" class="link {{ (request.matchesRoute('wiki')) ? 'active' : '' }}" up-target="[layout-main], [layout-nav]">
+      <a href="{{ route('wiki.home') }}" class="link {{ (request.matchesRoute('wiki')) ? 'active' : '' }}" up-target="[layout-main], [layout-nav]">
         Wiki
       </a>
     </li>
 
     @can('adminOnly')
       <li class="list-item">
-        <a href="{{ route('admin') }}" class="link {{ (request.matchesRoute('admin')) ? 'active' : '' }}" up-target="[layout-main], [layout-nav]">
+        <a href="{{ route('admin.home') }}" class="link {{ (request.matchesRoute('admin')) ? 'active' : '' }}" up-target="[layout-main], [layout-nav]">
           Admin
         </a>
       </li>
