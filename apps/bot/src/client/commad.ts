@@ -17,7 +17,7 @@ export enum CmdType {
 
 export type CommandData = {
   [CmdType.slash]: {
-    data: SlashCommandBuilder;
+    data: SlashCommandBuilder | Omit<SlashCommandBuilder, 'addSubcommand' | 'addSubcommandGroup'>;
     exec: Executor<ChatInputCommandInteraction>;
   };
   [CmdType.user]: {

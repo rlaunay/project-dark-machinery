@@ -36,15 +36,6 @@ const play: Command<CmdType.message> = {
 
     const player = createAudioPlayer();
 
-    // https.get(audioFile.url, (stream) => {
-
-    //   const resource = createAudioResource(stream);
-    //   player.play(resource);
-    //   connection.subscribe(player);
-
-    //   return interaction.reply({ content: `Fichiers: ${audioFile.name}`, ephemeral: true });
-    // });
-
     const resource = createAudioResource(audioFile.url);
     player.play(resource);
     connection.subscribe(player);
