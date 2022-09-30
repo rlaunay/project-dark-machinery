@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm run -r --parallel dev",
-    "back": "pnpm run -r --filter ./apps/backend dev",
+    "api": "pnpm run -r --filter ./apps/api dev",
+    "client": "pnpm run -r --filter ./apps/client dev",
+    "web": "pnpm run -r --filter ./apps/client --filter ./apps/api dev",
     "bot": "pnpm run -r --filter ./apps/bot dev",
     "bdd": "docker-compose up -d"
   },
