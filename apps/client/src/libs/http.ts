@@ -22,22 +22,22 @@ async function http<T>(path: string, config: RequestInit): Promise<T> {
   return data;
 }
 
-export async function get<T>(path: string, config?: RequestInit): Promise<T> {
+export async function get<R>(path: string, config?: RequestInit): Promise<R> {
   const init = {method: 'GET', ...config}
-  return await http<T>(path, init)
+  return await http<R>(path, init)
 }
 
-export async function post<T, U>(path: string, body: T, config?: RequestInit): Promise<U> {
+export async function post<B, R>(path: string, body: B, config?: RequestInit): Promise<R> {
   const init = {method: 'POST', body: JSON.stringify(body), ...config}
-  return await http<U>(path, init)
+  return await http<R>(path, init)
 }
 
-export async function put<T, U>(path: string, body: T, config?: RequestInit): Promise<U> {
+export async function put<B, R>(path: string, body: B, config?: RequestInit): Promise<R> {
   const init = {method: 'PUT', body: JSON.stringify(body), ...config}
-  return await http<U>(path, init)
+  return await http<R>(path, init)
 }
 
-export async function remove<T>(path: string, config?: RequestInit): Promise<T> {
+export async function remove<R>(path: string, config?: RequestInit): Promise<R> {
   const init = {method: 'DELETE', ...config}
-  return await http<T>(path, init)
+  return await http<R>(path, init)
 }
