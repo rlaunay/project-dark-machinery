@@ -90,4 +90,9 @@ export default class DiscordController {
       oat: oat.toJSON(),
     })
   }
+
+  public async logout({ auth }: HttpContextContract) {
+    await auth.use('api').logout()
+    return 'loggouted'
+  }
 }

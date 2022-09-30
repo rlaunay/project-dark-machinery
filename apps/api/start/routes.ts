@@ -22,3 +22,4 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/discord/redirect', 'DiscordController.redirect')
 Route.get('/discord/callback', 'DiscordController.callback')
+Route.delete('/discord/logout', 'DiscordController.logout').middleware('auth')
