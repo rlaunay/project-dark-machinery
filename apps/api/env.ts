@@ -29,4 +29,9 @@ export default Env.rules({
   PG_DB_NAME: Env.schema.string(),
   DISCORD_CLIENT_ID: Env.schema.string(),
   DISCORD_CLIENT_SECRET: Env.schema.string(),
+  REDIS_CONNECTION: Env.schema.enum(['local'] as const),
+  REDIS_HOST: Env.schema.string({ format: 'host' }),
+  REDIS_PORT: Env.schema.number(),
+  REDIS_PASSWORD: Env.schema.string.optional(),
+  API_TOKEN_COOKIE_NAME: Env.schema.string(),
 })

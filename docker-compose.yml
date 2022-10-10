@@ -10,5 +10,14 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
 
+  redis:
+    container_name: redis
+    image: redis:7-alpine
+    volumes:
+      - redis_volume:/data
+    ports:
+      - 6379:6379
+
 volumes:
   psql-data:
+  redis_volume:
