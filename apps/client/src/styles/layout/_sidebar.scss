@@ -1,0 +1,53 @@
+.sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  background-color: var(--bg-primary);
+  width: 20rem;
+  flex-shrink: 0;
+
+  transform: translateX(-100%);
+
+  transition: transform 300ms;
+
+  z-index: 30;
+
+  &.open {
+    border-right: var(--layout-border);
+    transform: translateX(0);
+  }
+
+  @include breakpoints(md) {
+    position: relative;
+    width: 0;
+    transform: translateX(0);
+
+    transition: width 300ms;
+
+    z-index: 1;
+
+    &.open {
+      width: 20rem;
+    }
+  }
+}
+
+.backdrop-sidebar {
+  position: absolute;
+  inset: 0;
+
+  background-color: rgba(0, 0, 0, .8);
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all 300ms;
+
+  z-index: 20;
+
+  &.open {
+    pointer-events: all;
+    opacity: 1;
+    cursor: pointer;
+  }
+}

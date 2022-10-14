@@ -1,7 +1,13 @@
 :root {
+  --white: #FFFFFF;
+
   --primary: #2999F1;
   --bg-primary: #262626;
   --bg-secondary: #404040;
+
+  --header-height: 5.8rem;
+
+  --layout-border: 2px solid var(--primary);
 }
 
 $breakpoints: (

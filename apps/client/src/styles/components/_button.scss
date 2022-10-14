@@ -1,0 +1,36 @@
+.btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.btn-icon {
+  cursor: pointer;
+  outline: none;
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 50px;
+  background-color: transparent;
+  color: var(--white);
+  
+  height: 4rem;
+  width: 4rem;
+
+  transition: background 150ms, transform 150ms;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  & svg {
+    height: 2.4rem;
+    width: 2.4rem;
+  }
+}

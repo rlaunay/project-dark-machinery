@@ -1,0 +1,12 @@
+.layout {
+  position: relative;
+  height: calc(100% - var(--header-height));
+
+  display: flex;
+
+  & .main {
+    flex-grow: 1;
+    background-color: var(--bg-secondary);
+    z-index: 10;
+  }
+}

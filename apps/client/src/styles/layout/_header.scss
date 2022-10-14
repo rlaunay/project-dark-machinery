@@ -1,4 +1,24 @@
 .header {
-  background-color: red;
-  height: 6.4rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+
+  background-color: var(--bg-primary);
+  height: var(--header-height);
+  border-bottom: var(--layout-border);
+
+  & h2 {
+    display: none;
+  }
+
+  & img {
+    margin-left: .5rem;
+  }
+
+  @include breakpoints(sm) {
+   & h2 {
+    display: inline;
+    margin: 0 1rem;
+   }   
+  }
 }
