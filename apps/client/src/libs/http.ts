@@ -10,10 +10,6 @@ async function request<T>(path: string, config: RequestInit): Promise<T> {
 
   const request = new Request(finalPath, { 
     ...config,
-    credentials: "include",
-    headers: {
-      ...config.headers,
-    }
   })
 
   const response = await fetch(request)

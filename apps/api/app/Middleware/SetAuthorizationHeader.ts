@@ -6,6 +6,8 @@ export default class SetAuthorizationHeader {
   public async handle({ request }: HttpContextContract, next: () => Promise<void>) {
     const token = request.cookie(String(Env.get('API_TOKEN_COOKIE_NAME')))
 
+    console.log(token)
+
     if (token) {
       request.headers().authorization = `Bearer ${token}`
     }

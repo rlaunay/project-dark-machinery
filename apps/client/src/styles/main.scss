@@ -10,5 +10,9 @@
 @import "layout/layout";
 @import "layout/header";
 @import "layout/sidebar";
+@import "layout/nav";
+
+@import "pages/error";
 
 @import "components/button";
+@import "components/loader";

@@ -1,6 +1,10 @@
+import Spinner from "@/components/Loader/Spinner";
+
 function Home() {
   console.log('page')
-  return <h1>home</h1>
+  return <>
+    <h1>home</h1>
+  </>
 };
 
 export default Home;

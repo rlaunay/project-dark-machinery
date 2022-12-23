@@ -25,5 +25,6 @@ Route.get('/discord/callback', 'DiscordController.callback')
 Route.delete('/discord/logout', 'DiscordController.logout').middleware('auth')
 
 Route.get('/me', ({ auth }) => {
+  console.log(auth.user)
   return auth.user?.serialize()
 }).middleware('auth')

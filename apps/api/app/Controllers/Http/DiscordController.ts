@@ -1,5 +1,4 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Env from '@ioc:Adonis/Core/Env'
 import DiscordToken from 'App/Models/DiscordToken'
 import User from 'App/Models/User'
 
@@ -9,7 +8,7 @@ export default class DiscordController {
       return response.notAcceptable()
     }
 
-    return response.send({ url: await ally.use('discord').stateless().redirectUrl() })
+    return response.send(await ally.use('discord').stateless().redirectUrl())
   }
 
   public async callback({ ally, auth, response }: HttpContextContract) {
@@ -76,17 +75,11 @@ export default class DiscordController {
      * Create a cookie where the Opaque Access Token
      * will be stored with maxAge = 7 days.
      */
-    response.cookie(String(Env.get('API_TOKEN_COOKIE_NAME')), oat.token, {
-      maxAge: 60 * 60 * 24 * 7,
-      sameSite: 'none',
-      secure: true,
-      httpOnly: true,
-    })
 
     /**
      * Everything is OK!
      */
-    return response.ok(user.serialize())
+    return response.ok(oat.token)
   }
 
   public async logout({ auth }: HttpContextContract) {
